@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebBlogModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WebBlogEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="WebBlogModel.Account" />
+    <EntitySet Name="Blog" EntityType="WebBlogModel.Blog" />
+    <EntitySet Name="Comment" EntityType="WebBlogModel.Comment" />
+    <EntitySet Name="Image" EntityType="WebBlogModel.Image" />
+    <EntitySet Name="Judge" EntityType="WebBlogModel.Judge" />
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PlayName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ArticleNum" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Job" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="QQ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Visible" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Article" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AddTime" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PlayName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BlogName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ViewNum" Type="Int32" />
+    <Property Name="CommentNum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommentDate" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Commenter" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Article" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FloorNum" Type="Int32" />
+    <Property Name="AgreeNum" Type="Int32" />
+    <Property Name="DisagreeNum" Type="Int32" />
+    <Property Name="InRepeater" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ContentID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MyEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ImageContent" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Judge">
+    <Key>
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommentID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>

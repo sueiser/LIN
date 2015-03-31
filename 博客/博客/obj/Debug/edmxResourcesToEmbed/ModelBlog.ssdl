@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebBlogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WebBlogModelStoreContainer">
+    <EntitySet Name="Account" EntityType="WebBlogModel.Store.Account" store:Type="Tables" store:Schema="dbo" store:Name="Account">
+      <DefiningQuery>SELECT 
+      [Account].[AccountID] AS [AccountID], 
+      [Account].[BlogName] AS [BlogName], 
+      [Account].[UserName] AS [UserName], 
+      [Account].[Password] AS [Password], 
+      [Account].[PlayName] AS [PlayName], 
+      [Account].[Email] AS [Email], 
+      [Account].[ArticleNum] AS [ArticleNum], 
+      [Account].[Sex] AS [Sex], 
+      [Account].[Address] AS [Address], 
+      [Account].[Job] AS [Job], 
+      [Account].[Phone] AS [Phone], 
+      [Account].[QQ] AS [QQ], 
+      [Account].[Visible] AS [Visible]
+      FROM [dbo].[Account] AS [Account]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Blog" EntityType="WebBlogModel.Store.Blog" store:Type="Tables" store:Schema="dbo" store:Name="Blog">
+      <DefiningQuery>SELECT 
+      [Blog].[BlogID] AS [BlogID], 
+      [Blog].[Title] AS [Title], 
+      [Blog].[Article] AS [Article], 
+      [Blog].[AddTime] AS [AddTime], 
+      [Blog].[AccountID] AS [AccountID], 
+      [Blog].[PlayName] AS [PlayName], 
+      [Blog].[BlogName] AS [BlogName], 
+      [Blog].[ViewNum] AS [ViewNum], 
+      [Blog].[CommentNum] AS [CommentNum]
+      FROM [dbo].[Blog] AS [Blog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Comment" EntityType="WebBlogModel.Store.Comment" store:Type="Tables" store:Schema="dbo" store:Name="Comment">
+      <DefiningQuery>SELECT 
+      [Comment].[CommentID] AS [CommentID], 
+      [Comment].[BlogID] AS [BlogID], 
+      [Comment].[CommentDate] AS [CommentDate], 
+      [Comment].[Commenter] AS [Commenter], 
+      [Comment].[Article] AS [Article], 
+      [Comment].[FloorNum] AS [FloorNum], 
+      [Comment].[AgreeNum] AS [AgreeNum], 
+      [Comment].[DisagreeNum] AS [DisagreeNum], 
+      [Comment].[InRepeater] AS [InRepeater], 
+      [Comment].[CategoryID] AS [CategoryID], 
+      [Comment].[ContentID] AS [ContentID], 
+      [Comment].[MyEmail] AS [MyEmail]
+      FROM [dbo].[Comment] AS [Comment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Image" EntityType="WebBlogModel.Store.Image" store:Type="Tables" store:Schema="dbo" store:Name="Image">
+      <DefiningQuery>SELECT 
+      [Image].[ImageID] AS [ImageID], 
+      [Image].[AccountID] AS [AccountID], 
+      [Image].[ImageContent] AS [ImageContent]
+      FROM [dbo].[Image] AS [Image]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Judge" EntityType="WebBlogModel.Store.Judge" store:Type="Tables" store:Schema="dbo" store:Name="Judge">
+      <DefiningQuery>SELECT 
+      [Judge].[AccountID] AS [AccountID], 
+      [Judge].[CommentID] AS [CommentID]
+      FROM [dbo].[Judge] AS [Judge]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Account”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="PlayName" />
+    </Key>
+    <Property Name="AccountID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArticleNum" Type="int" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Job" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visible" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Blog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Article" />
+      <PropertyRef Name="AddTime" />
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="PlayName" />
+    </Key>
+    <Property Name="BlogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Article" Type="nvarchar" Nullable="false" />
+    <Property Name="AddTime" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViewNum" Type="int" />
+    <Property Name="CommentNum" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Comment”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+      <PropertyRef Name="CommentDate" />
+      <PropertyRef Name="Commenter" />
+      <PropertyRef Name="Article" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BlogID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Commenter" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Article" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FloorNum" Type="int" />
+    <Property Name="AgreeNum" Type="int" />
+    <Property Name="DisagreeNum" Type="int" />
+    <Property Name="InRepeater" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MyEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Image”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="ImageContent" />
+    </Key>
+    <Property Name="ImageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageContent" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Judge”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Judge">
+    <Key>
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CommentID" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebBlogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="WebBlogModelStoreContainer">
+          <EntitySet Name="Account" EntityType="WebBlogModel.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Blog" EntityType="WebBlogModel.Store.Blog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comment" EntityType="WebBlogModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Image" EntityType="WebBlogModel.Store.Image" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Judge" EntityType="WebBlogModel.Store.Judge" store:Type="Tables" store:Schema="dbo" store:Name="Judge">
+            <DefiningQuery>SELECT 
+      [Judge].[AccountID] AS [AccountID], 
+      [Judge].[CommentID] AS [CommentID]
+      FROM [dbo].[Judge] AS [Judge]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArticleNum" Type="int" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Job" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="Visible" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Article" Type="nvarchar" Nullable="false" />
+          <Property Name="AddTime" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ViewNum" Type="int" />
+          <Property Name="CommentNum" Type="int" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BlogID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommentDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Commenter" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Article" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FloorNum" Type="int" />
+          <Property Name="AgreeNum" Type="int" />
+          <Property Name="DisagreeNum" Type="int" />
+          <Property Name="InRepeater" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContentID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MyEmail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ImageContent" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Judge”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Judge">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CommentID" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebBlogModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WebBlogEntities2" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="WebBlogModel.Account" />
+          <EntitySet Name="Blog" EntityType="WebBlogModel.Blog" />
+          <EntitySet Name="Comment" EntityType="WebBlogModel.Comment" />
+          <EntitySet Name="Image" EntityType="WebBlogModel.Image" />
+          <EntitySet Name="Judge" EntityType="WebBlogModel.Judge" />
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PlayName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ArticleNum" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Job" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="QQ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Visible" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Article" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AddTime" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PlayName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BlogName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ViewNum" Type="Int32" />
+          <Property Name="CommentNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommentDate" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Commenter" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Article" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FloorNum" Type="Int32" />
+          <Property Name="AgreeNum" Type="Int32" />
+          <Property Name="DisagreeNum" Type="Int32" />
+          <Property Name="InRepeater" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CategoryID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ContentID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MyEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ImageContent" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Judge">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommentID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebBlogModelStoreContainer" CdmEntityContainer="WebBlogEntities2">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="WebBlogModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="BlogName" ColumnName="BlogName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PlayName" ColumnName="PlayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ArticleNum" ColumnName="ArticleNum" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog">
+            <EntityTypeMapping TypeName="WebBlogModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Article" ColumnName="Article" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="PlayName" ColumnName="PlayName" />
+                <ScalarProperty Name="BlogName" ColumnName="BlogName" />
+                <ScalarProperty Name="ViewNum" ColumnName="ViewNum" />
+                <ScalarProperty Name="CommentNum" ColumnName="CommentNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="WebBlogModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="Commenter" ColumnName="Commenter" />
+                <ScalarProperty Name="Article" ColumnName="Article" />
+                <ScalarProperty Name="FloorNum" ColumnName="FloorNum" />
+                <ScalarProperty Name="AgreeNum" ColumnName="AgreeNum" />
+                <ScalarProperty Name="DisagreeNum" ColumnName="DisagreeNum" />
+                <ScalarProperty Name="InRepeater" ColumnName="InRepeater" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+                <ScalarProperty Name="MyEmail" ColumnName="MyEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="WebBlogModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ImageContent" ColumnName="ImageContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Judge">
+            <EntityTypeMapping TypeName="WebBlogModel.Judge">
+              <MappingFragment StoreEntitySet="Judge">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

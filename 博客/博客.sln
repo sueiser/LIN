@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "博客", "博客\博客.csproj", "{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

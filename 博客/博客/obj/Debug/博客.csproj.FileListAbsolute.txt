@@ -1,0 +1,8 @@
+F:\visual studio 2012\Program\博客\博客\bin\博客.dll
+F:\visual studio 2012\Program\博客\博客\bin\博客.pdb
+F:\visual studio 2012\Program\博客\博客\obj\Debug\博客.csprojResolveAssemblyReference.cache
+F:\visual studio 2012\Program\博客\博客\obj\Debug\博客.dll
+F:\visual studio 2012\Program\博客\博客\obj\Debug\博客.pdb
+F:\visual studio 2012\Program\博客\博客\bin\EntityFramework.dll
+F:\visual studio 2012\Program\博客\博客\bin\EntityFramework.xml
+F:\visual studio 2012\Program\博客\博客\bin\zh-Hans\EntityFramework.resources.dll

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebBlogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WebBlogModelStoreContainer">
+    <EntitySet Name="Account" EntityType="WebBlogModel.Store.Account" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Blog" EntityType="WebBlogModel.Store.Blog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comment" EntityType="WebBlogModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Image" EntityType="WebBlogModel.Store.Image" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Judge" EntityType="WebBlogModel.Store.Judge" store:Type="Tables" store:Schema="dbo" store:Name="Judge">
+      <DefiningQuery>SELECT 
+      [Judge].[AccountID] AS [AccountID], 
+      [Judge].[CommentID] AS [CommentID]
+      FROM [dbo].[Judge] AS [Judge]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArticleNum" Type="int" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Job" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visible" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Article" Type="nvarchar" Nullable="false" />
+    <Property Name="AddTime" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlayName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViewNum" Type="int" />
+    <Property Name="CommentNum" Type="int" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BlogID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Commenter" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Article" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FloorNum" Type="int" />
+    <Property Name="AgreeNum" Type="int" />
+    <Property Name="DisagreeNum" Type="int" />
+    <Property Name="InRepeater" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MyEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageContent" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“WebBlog.dbo.Judge”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="Judge">
+    <Key>
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CommentID" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema>

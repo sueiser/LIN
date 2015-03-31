@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87FCF015-2EC8-4B04-88AF-A2F10FFF1830}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>博客</RootNamespace>
+    <AssemblyName>博客</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangePassword1.aspx" />
+    <Content Include="ChangePassword2.aspx" />
+    <Content Include="Code.aspx" />
+    <Content Include="Image\NoImage.jpg" />
+    <Content Include="Image\Logo.jpg" />
+    <Content Include="Image\Image3.jpg" />
+    <Content Include="AddBlogs.aspx" />
+    <Content Include="DetailBlog.aspx" />
+    <Content Include="Information.aspx" />
+    <Content Include="Information2.aspx" />
+    <Content Include="Information3.aspx" />
+    <Content Include="LogIn.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="MyBlog.aspx" />
+    <Content Include="OtherBlog.aspx" />
+    <Content Include="OtherInformation.aspx" />
+    <Content Include="OtherPhoto.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="UpDate.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="MyPhoto.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddBlogs.aspx.cs">
+      <DependentUpon>AddBlogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBlogs.aspx.designer.cs">
+      <DependentUpon>AddBlogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.cs">
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword1.aspx.cs">
+      <DependentUpon>ChangePassword1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword1.aspx.designer.cs">
+      <DependentUpon>ChangePassword1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword2.aspx.cs">
+      <DependentUpon>ChangePassword2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword2.aspx.designer.cs">
+      <DependentUpon>ChangePassword2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code.aspx.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code.aspx.designer.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="DetailBlog.aspx.cs">
+      <DependentUpon>DetailBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailBlog.aspx.designer.cs">
+      <DependentUpon>DetailBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Information.aspx.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Information.aspx.designer.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Information2.aspx.cs">
+      <DependentUpon>Information2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Information2.aspx.designer.cs">
+      <DependentUpon>Information2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Information3.aspx.cs">
+      <DependentUpon>Information3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Information3.aspx.designer.cs">
+      <DependentUpon>Information3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Judge.cs">
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyBlog.aspx.cs">
+      <DependentUpon>MyBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyBlog.aspx.designer.cs">
+      <DependentUpon>MyBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherBlog.aspx.cs">
+      <DependentUpon>OtherBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherBlog.aspx.designer.cs">
+      <DependentUpon>OtherBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherInformation.aspx.cs">
+      <DependentUpon>OtherInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherInformation.aspx.designer.cs">
+      <DependentUpon>OtherInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherPhoto.aspx.cs">
+      <DependentUpon>OtherPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherPhoto.aspx.designer.cs">
+      <DependentUpon>OtherPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SQL Data.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQL Data.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL Data.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQL Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL Data.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQL Data.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UpDate.aspx.cs">
+      <DependentUpon>UpDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpDate.aspx.designer.cs">
+      <DependentUpon>UpDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyPhoto.aspx.cs">
+      <DependentUpon>MyPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyPhoto.aspx.designer.cs">
+      <DependentUpon>MyPhoto.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <EntityDeploy Include="SQL Data.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SQL Data.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SQL Data.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SQL Data.edmx</DependentUpon>
+      <LastGenOutput>SQL Data.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SQL Data.edmx.diagram">
+      <DependentUpon>SQL Data.edmx</DependentUpon>
+    </Content>
+    <Content Include="SQL Data.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SQL Data.edmx</DependentUpon>
+      <LastGenOutput>SQL Data.cs</LastGenOutput>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12953</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:21331/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
